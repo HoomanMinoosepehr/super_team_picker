@@ -1,0 +1,87 @@
+<%- include('../partials/header') %>
+
+<div class="container d-flex justify-content-center mt-4">
+  <div class="card mb-3 mt-3" style="width:35rem">
+    <div class="card-body justify-content-center w-100">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-wrap">
+          <h2 class="card-title text-capitalize"><%= data.name_of_team %></h2>
+          <p class="card-text text-wrap text-capitalize"><%= data.name_of_members %></p>
+        </li>
+        <li class="list-group-item">
+          <form action="/cohorts/<%= data.id %>" method="get">
+            <h6>Method</h6>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="radio"
+                value="team"
+                id="team"
+              />
+              <label class="form-check-label" for="team"> Team Count </label
+              ><br />
+              <input
+                class="form-check-input"
+                type="radio"
+                name="radio"
+                value="member"
+                id="member"
+              />
+              <label class="form-check-label" for="member">
+                Number per Team
+              </label>
+            </div>
+            <h6 class="mt-4">Quantity</h6>
+            <div class="input-group mb-3">
+              <input
+                type="number"
+                name="number"
+                class="form-control"
+                placeholder="Quantity"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+            <div class="text-center">
+              <button class="btn btn-outline-primary btn-block">Assign Teams</button>
+            </div>
+          </form>
+          <% if (final) {%>
+          <table class="table mt-3">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Members</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (let i = 0 ; i < final.length ; i++) {%>
+              <tr>
+                <th scope="row"><%= i + 1 %></th>
+                <td>
+                  <p class="text-wrap w-10 text-capitalize" style="width:25rem">
+                    <%= final[i] %>
+                  </p>
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+          <% } %>
+        </li>
+      </ul>
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+      <a class="btn btn-outline-warning" href="/cohorts/<%=  data.id %>/edit"
+        >Edit Post</a
+      >
+      <form class="" action="/cohorts/<%=  data.id %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE" />
+        <input type="submit" class="btn btn-danger" value="Delete" />
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

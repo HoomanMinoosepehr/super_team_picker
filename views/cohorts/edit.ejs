@@ -1,0 +1,55 @@
+<%- include('../partials/header') %>
+
+<div class="container">
+
+  <h1 class="mt-3">Edit</h1>
+  <form action="/cohorts/<%= id %>" method="POST">
+    <input type="hidden" name="_method" value="PATCH">
+    <div class="form-group my-3">
+
+  <h1 class="mt-3">Edit Team and Members</h1>
+  <form action="/cohorts/<%= id %>" method="POST">
+    <div class="form-group my-3">
+      <input type="hidden" name="_method" value="PATCH" />
+      <label for="logo_url">Logo Url</label>
+      <input
+        type="url"
+        id="logo_url"
+        name="logo_url"
+        class="form-control"
+        value="<%= logo_url %>"
+        placeholder="e.g. http://wwww.example.com/something"
+      />
+    </div>
+
+    <div class="form-group">
+
+      <label for="name_of_team">Name of Team (required)</label>
+
+      <input
+        type="text"
+        id="name_of_team"
+        name="name_of_team"
+        class="form-control mb-3"
+        value="<%=name_of_team%>"
+        placeholder="Flying Funks"
+        />
+    </div>
+
+    <div class="form-group">
+
+      <label for="name_of_members">Name of Members (required)</label>
+
+      <textarea
+        name="name_of_members"
+        id="name_of_members"
+        cols="30"
+        rows="10"
+        class="form-control mb-3"
+        ><%=name_of_members%></textarea>
+    </div>
+    <input type="submit" value="Edit post" class="btn btn-success">
+    </div>
+</form>
+</div>
+<%- include('../partials/footer') %>
