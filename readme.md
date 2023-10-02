@@ -1,8 +1,12 @@
-This application is, 'Super Team Picher'
-1. by using this application you can input the name of all the members in your team, and then split those members based on two things
-    1. number of persons in each group
-    2. number of groups
-2. After all of these, you can save that group in your database.
-3. you can also delete or edit the existed groups in your database.
+# 'Super Team Picher'
+## Frameworks:
+ - Javascript
+ - express
+ - PSQL
 
-The framework of the app is javascript and node express and its database is PSQL
+ #### With this application, you have the ability to create random groups from a list of names. You can achieve this in two ways:
+ 1. Create groups based on the desired number of people in each team.
+ 2. Create groups based on the specific number of groups you need.
+
+ #### Once you've created the groups, you can save them in the database.
+ #### Additionally, you have the option to delete or edit existing groups stored in your database.
